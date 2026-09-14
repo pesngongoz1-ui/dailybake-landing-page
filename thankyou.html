@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ขอบคุณสำหรับคำสั่งซื้อ | Daily Bake</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  .thankyou-wrap {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .thankyou-card {
+    max-width: 480px;
+    text-align: center;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .thankyou-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-md);
+    border-radius: 50%;
+    background-color: var(--flavor-vanilla-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+
+  .thankyou-card h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .thankyou-card p {
+    margin-bottom: var(--space-lg);
+  }
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Daily Bake</a>
+      <div class="nav-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html">สินค้า</a>
+        <a href="order.html">สั่งซื้อ</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="thankyou-wrap">
+    <div class="thankyou-card">
+      <div class="thankyou-icon">🍞</div>
+      <span class="eyebrow">Order Received</span>
+      <h1>ขอบคุณมากนะคะ</h1>
+      <p>
+        เราได้รับคำสั่งซื้อของคุณเรียบร้อยแล้ว
+        ทีมงาน Daily Bake จะติดต่อกลับเพื่อยืนยันรายละเอียดเร็วๆ นี้
+        ขอให้วันนี้เป็นวันที่อบอุ่นและหวานหอมเหมือนขนมปังของเรา
+      </p>
+      <a href="index.html" class="btn btn-primary">กลับหน้าแรก</a>
+    </div>
+  </div>
+
+</body>
+</html>

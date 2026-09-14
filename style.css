@@ -1,0 +1,449 @@
+/* ==========================================================================
+   Daily Bake — Global Stylesheet
+   โทนเบเกอรี่มินิมอล เรียบหรู: ขาว / ครีมนม / น้ำตาลอบอุ่น
+   แต้มสีรสชาติเฉพาะจุด: chocolate / strawberry / vanilla / matcha
+   ========================================================================== */
+
+/* ---------- 1. Design Tokens ---------- */
+:root {
+  /* Base palette */
+  --color-white: #ffffff;
+  --color-cream: #f7f1e8;
+  --color-cream-soft: #faf6f0;
+  --color-milk: #efe6d8;
+  --color-brown-warm: #6b4a34;
+  --color-brown-deep: #4a3226;
+  --color-brown-text: #3a2a20;
+  --color-brown-muted: #8a7261;
+  --color-border: #e4d9c8;
+
+  /* Flavor accents (ใช้แบบแต้มจุด ไม่ใช้เป็นพื้นหลังใหญ่) */
+  --flavor-chocolate: #4a2f22;
+  --flavor-chocolate-soft: #d8c3b3;
+  --flavor-strawberry: #e8a3ac;
+  --flavor-strawberry-soft: #f6dde0;
+  --flavor-vanilla: #efd79a;
+  --flavor-vanilla-soft: #faf0d8;
+  --flavor-matcha: #a8c48a;
+  --flavor-matcha-soft: #e3edd6;
+
+  /* Typography */
+  --font-heading: "Noto Serif Thai", "Georgia", serif;
+  --font-body: "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Radius & shadow */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-soft: 0 8px 24px rgba(74, 50, 38, 0.08);
+  --shadow-hover: 0 14px 32px rgba(74, 50, 38, 0.14);
+
+  /* Layout */
+  --max-width: 1200px;
+  --transition-base: 0.25s ease;
+}
+
+/* ---------- 2. Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream-soft);
+  color: var(--color-brown-text);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ---------- 3. Typography ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-brown-deep);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: var(--color-brown-muted);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brown-warm);
+  margin-bottom: var(--space-xs);
+}
+
+/* ---------- 4. Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-2xl) 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ---------- 5. Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.btn-primary {
+  background-color: var(--color-brown-deep);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brown-warm);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-brown-deep);
+  border: 1.5px solid var(--color-brown-deep);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-brown-deep);
+  color: var(--color-white);
+}
+
+/* ---------- 6. Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+
+.navbar .logo {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-brown-deep);
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.navbar .nav-links a {
+  font-size: 0.95rem;
+  color: var(--color-brown-text);
+  transition: color var(--transition-base);
+}
+
+.navbar .nav-links a:hover {
+  color: var(--color-brown-warm);
+}
+
+/* ---------- 7. Hero ---------- */
+.hero {
+  padding: var(--space-2xl) 0;
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-soft) 100%);
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero-content p {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  max-width: 480px;
+}
+
+.hero-image img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- 8. Product Card ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.product-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  position: relative;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.product-card .product-image {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--color-milk);
+}
+
+.product-card .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-card .product-body {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+
+.product-card .product-name {
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-card .product-size {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--color-brown-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  margin-bottom: var(--space-xs);
+}
+
+.product-card .product-price {
+  font-weight: 700;
+  color: var(--color-brown-deep);
+  font-size: 1.1rem;
+}
+
+/* Flavor accent dot — แต้มสีเฉพาะจุดตามรสชาติ */
+.flavor-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+.flavor-dot.chocolate {
+  background-color: var(--flavor-chocolate);
+}
+
+.flavor-dot.strawberry {
+  background-color: var(--flavor-strawberry);
+}
+
+.flavor-dot.vanilla {
+  background-color: var(--flavor-vanilla);
+}
+
+.flavor-dot.matcha {
+  background-color: var(--flavor-matcha);
+}
+
+/* Flavor tag badge บนมุมการ์ด */
+.product-card[data-mood="chocolate"] .product-tag {
+  background-color: var(--flavor-chocolate-soft);
+  color: var(--flavor-chocolate);
+}
+
+.product-card[data-mood="strawberry"] .product-tag {
+  background-color: var(--flavor-strawberry-soft);
+  color: #b0525f;
+}
+
+.product-card[data-mood="vanilla"] .product-tag {
+  background-color: var(--flavor-vanilla-soft);
+  color: #9c7c2f;
+}
+
+.product-card[data-mood="matcha"] .product-tag {
+  background-color: var(--flavor-matcha-soft);
+  color: #4f7a3a;
+}
+
+.product-tag {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- 9. Footer ---------- */
+.footer {
+  background-color: var(--color-milk);
+  padding: var(--space-xl) 0 var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.footer h4 {
+  font-size: 0.95rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-brown-deep);
+}
+
+.footer a,
+.footer p {
+  font-size: 0.9rem;
+  color: var(--color-brown-muted);
+}
+
+.footer .footer-bottom {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-brown-muted);
+}
+
+/* ---------- 10. Responsive ---------- */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .navbar .nav-links {
+    display: none;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .section {
+    padding: var(--space-xl) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  .product-card .product-body {
+    padding: var(--space-xs) var(--space-sm) var(--space-sm);
+  }
+}

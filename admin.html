@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin | Daily Bake</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  .admin-wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .refresh-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    background-color: var(--color-brown-deep);
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color var(--transition-base);
+  }
+
+  .refresh-btn:hover {
+    background-color: var(--color-brown-warm);
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  thead th {
+    text-align: left;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-milk);
+    color: var(--color-brown-deep);
+    font-weight: 700;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  tbody td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-brown-text);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover {
+    background-color: var(--color-cream-soft);
+  }
+
+  .status-msg {
+    text-align: center;
+    padding: var(--space-lg);
+    color: var(--color-brown-muted);
+  }
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Daily Bake</a>
+      <div class="nav-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html">สินค้า</a>
+        <a href="admin.html">Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="admin-wrap">
+    <div class="admin-header">
+      <div>
+        <span class="eyebrow">Admin Panel</span>
+        <h1>รายการสั่งซื้อทั้งหมด</h1>
+      </div>
+      <button class="refresh-btn" id="refreshBtn">รีเฟรชข้อมูล</button>
+    </div>
+
+    <div class="table-scroll">
+      <table id="ordersTable">
+        <thead>
+          <tr>
+            <th>วันเวลา</th>
+            <th>ชื่อลูกค้า</th>
+            <th>เบอร์โทร/Line</th>
+            <th>รายการสินค้า</th>
+            <th>จำนวนเงินรวม</th>
+            <th>หมายเหตุ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="6" class="status-msg">กำลังโหลดข้อมูล...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

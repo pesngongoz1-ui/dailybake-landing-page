@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daily Bake | ขนมปังโฮมเมด อบสดใหม่ทุกวัน</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* ---------- Hero เฉพาะหน้านี้ ---------- */
+  .hero-tagline {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .hero-image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .hero-image-grid img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-image-grid .tall {
+    grid-row: span 2;
+    aspect-ratio: unset;
+  }
+
+  /* ---------- Flavor section ---------- */
+  .flavor-section-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .flavor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+  }
+
+  .flavor-card {
+    display: block;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+    position: relative;
+  }
+
+  .flavor-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  .flavor-card .flavor-image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--color-milk);
+  }
+
+  .flavor-card .flavor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+  }
+
+  .flavor-card:hover .flavor-image img {
+    transform: scale(1.05);
+  }
+
+  .flavor-card .flavor-body {
+    padding: var(--space-md);
+  }
+
+  .flavor-card .flavor-name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  .flavor-card .flavor-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .flavor-card[data-mood="chocolate"] .flavor-name { color: var(--flavor-chocolate); }
+  .flavor-card[data-mood="strawberry"] .flavor-name { color: #b0525f; }
+  .flavor-card[data-mood="vanilla"] .flavor-name { color: #9c7c2f; }
+  .flavor-card[data-mood="matcha"] .flavor-name { color: #4f7a3a; }
+
+  /* ---------- CTA band ---------- */
+  .cta-band {
+    background-color: var(--color-milk);
+    text-align: center;
+    padding: var(--space-2xl) 0;
+    border-radius: var(--radius-lg);
+    margin: 0 var(--space-md);
+  }
+
+  .cta-band p {
+    max-width: 480px;
+    margin: var(--space-sm) auto var(--space-lg);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .flavor-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-image-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .flavor-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Daily Bake</a>
+      <div class="nav-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html">สินค้า</a>
+        <a href="order.html">สั่งซื้อ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= Hero Section ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Daily Bake</span>
+        <h1>อบความสุขสดใหม่<br />ในทุกวัน</h1>
+        <p class="hero-tagline">
+          ให้ทุกคำของ Daily Bake เป็นช่วงเวลาดีๆ ของคุณ
+          ขนมปังปอนด์โฮมเมด อบสดใหม่ทุกวัน คัดสรรวัตถุดิบคุณภาพ
+          ในรสชาติที่หลากหลาย
+        </p>
+        <a href="product.html" class="btn btn-primary">ดูเมนูทั้งหมด</a>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-image-grid">
+          <img class="tall" src="images/chocolate.jpg" alt="ขนมปังปอนด์ช็อกโกแลต Daily Bake" />
+          <img src="images/strawberry.jpg" alt="ขนมปังปอนด์สตรอเบอร์รี่นมสด Daily Bake" />
+          <img src="images/matcha.jpg" alt="ขนมปังปอนด์ชาเขียวมัทฉะ Daily Bake" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Flavor Section ================= -->
+  <section class="section container">
+    <div class="flavor-section-header">
+      <span class="eyebrow">Our Flavors</span>
+      <h2>4 รสชาติที่เป็นตัวเรา</h2>
+      <p>แต่ละรสชาติถูกคัดสรรมาเพื่อเติมเต็มความรู้สึกที่แตกต่างกันในแต่ละวัน</p>
+    </div>
+
+    <div class="flavor-grid">
+      <a href="product.html?mood=chocolate" class="flavor-card" data-mood="chocolate">
+        <div class="flavor-image">
+          <img src="images/chocolate.jpg" alt="ขนมปังปอนด์ช็อกโกแลต" loading="lazy" />
+        </div>
+        <div class="flavor-body">
+          <h3 class="flavor-name">
+            <span class="flavor-dot chocolate"></span>ช็อกโกแลต
+          </h3>
+          <p class="flavor-desc">
+            สัมผัสรสชาติช็อกโกแลตเข้มข้นเต็มคำ รสสัมผัสนุ่มลึกที่พร้อมปลอบประโลม
+            และสร้างความอบอุ่นหัวใจในทุกเช้า
+          </p>
+        </div>
+      </a>
+
+      <a href="product.html?mood=strawberry" class="flavor-card" data-mood="strawberry">
+        <div class="flavor-image">
+          <img src="images/strawberry.jpg" alt="ขนมปังปอนด์สตรอเบอร์รี่นมสด" loading="lazy" />
+        </div>
+        <div class="flavor-body">
+          <h3 class="flavor-name">
+            <span class="flavor-dot strawberry"></span>สตรอเบอร์รี่
+          </h3>
+          <p class="flavor-desc">
+            เติมความสดชื่นแจ่มใสด้วยรสชาติหวานซ่อนเปรี้ยวอย่างลงตัว
+            ปลุกพลังให้ทุกวันของคุณเต็มไปด้วยชีวิตชีวา
+          </p>
+        </div>
+      </a>
+
+      <a href="product.html?mood=vanilla" class="flavor-card" data-mood="vanilla">
+        <div class="flavor-image">
+          <img src="images/vanilla.jpg" alt="ขนมปังปอนด์วนิลลาเนยสด" loading="lazy" />
+        </div>
+        <div class="flavor-body">
+          <h3 class="flavor-name">
+            <span class="flavor-dot vanilla"></span>วนิลลา
+          </h3>
+          <p class="flavor-desc">
+            ละมุนไปกับความหอมอ่อนๆ ของเนยแท้และนมสด
+            ขนมปังเนื้อนุ่มฟูที่ช่วยให้คุณรู้สึกผ่อนคลายในทุกคำ
+          </p>
+        </div>
+      </a>
+
+      <a href="product.html?mood=matcha" class="flavor-card" data-mood="matcha">
+        <div class="flavor-image">
+          <img src="images/matcha.jpg" alt="ขนมปังปอนด์ชาเขียวมัทฉะ" loading="lazy" />
+        </div>
+        <div class="flavor-body">
+          <h3 class="flavor-name">
+            <span class="flavor-dot matcha"></span>ชาเขียว
+          </h3>
+          <p class="flavor-desc">
+            สัมผัสความเข้มข้นจากมัทฉะแท้เกรดพรีเมียม
+            ให้กลิ่นหอมสงบพร้อมคืนความสดชื่นและช่วยเติมสมาธิระหว่างวัน
+          </p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= CTA Band ================= -->
+  <section class="container" style="padding: 0 var(--space-md) var(--space-2xl);">
+    <div class="cta-band">
+      <span class="eyebrow">Ready to Order?</span>
+      <h2>พร้อมเสิร์ฟความสุขให้คุณแล้ววันนี้</h2>
+      <p>เลือกรสชาติที่ใช่ ไซส์ที่ชอบ แล้วให้ Daily Bake ดูแลมื้อพิเศษของคุณ</p>
+      <a href="product.html" class="btn btn-primary">สั่งซื้อเลย</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div>
+        <h4>Daily Bake</h4>
+        <p>ขนมปังโฮมเมด อบสดใหม่ทุกวัน</p>
+      </div>
+      <div>
+        <h4>ติดต่อเรา</h4>
+        <p>Line / IG: @dailybake</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Daily Bake. All rights reserved.</div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

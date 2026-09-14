@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>สินค้าทั้งหมด | Daily Bake</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* สไตล์เฉพาะหน้านี้ */
+  .page-header {
+    padding: var(--space-xl) 0 var(--space-md);
+    text-align: center;
+  }
+
+  #filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin: var(--space-md) 0 var(--space-lg);
+  }
+
+  .filter-btn {
+    padding: 0.55rem 1.3rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--color-border);
+    background-color: var(--color-white);
+    color: var(--color-brown-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-base);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-brown-warm);
+  }
+
+  .filter-btn.active {
+    background-color: var(--color-brown-deep);
+    border-color: var(--color-brown-deep);
+    color: var(--color-white);
+  }
+
+  #product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+  }
+
+  .product-card .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--space-sm);
+  }
+
+  .order-btn {
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    background-color: var(--color-brown-deep);
+    color: var(--color-white);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color var(--transition-base), transform var(--transition-base);
+  }
+
+  .order-btn:hover {
+    background-color: var(--color-brown-warm);
+    transform: translateY(-2px);
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--color-brown-muted);
+    padding: var(--space-xl) 0;
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 1024px) {
+    #product-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    #product-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    #product-list {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Daily Bake</a>
+      <div class="nav-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html">สินค้า</a>
+        <a href="order.html">สั่งซื้อ</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header container">
+    <span class="eyebrow">Our Menu</span>
+    <h1>ขนมปังโฮมเมดของเรา</h1>
+    <p>เลือกรสชาติที่ใช่ ไซส์ที่ชอบ อบสดใหม่ทุกวัน</p>
+  </header>
+
+  <main class="container section" style="padding-top: 0;">
+
+    <div id="filter-bar">
+      <button class="filter-btn active" data-mood="all">ทั้งหมด</button>
+      <button class="filter-btn" data-mood="chocolate">
+        <span class="flavor-dot chocolate"></span>Chocolate
+      </button>
+      <button class="filter-btn" data-mood="strawberry">
+        <span class="flavor-dot strawberry"></span>Strawberry
+      </button>
+      <button class="filter-btn" data-mood="vanilla">
+        <span class="flavor-dot vanilla"></span>Vanilla
+      </button>
+      <button class="filter-btn" data-mood="matcha">
+        <span class="flavor-dot matcha"></span>Matcha
+      </button>
+    </div>
+
+    <div id="product-list">
+      <p class="empty-state">กำลังโหลดสินค้า...</p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>
+        <h4>Daily Bake</h4>
+        <p>ขนมปังโฮมเมด อบสดใหม่ทุกวัน</p>
+      </div>
+      <div>
+        <h4>ติดต่อเรา</h4>
+        <p>Line / IG: @dailybake</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Daily Bake. All rights reserved.</div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
